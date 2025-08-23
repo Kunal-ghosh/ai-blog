@@ -34,3 +34,8 @@ jobs:
           git add pages/posts
           git commit -m "Add auto-generated post [skip ci]" || echo "No changes"
           git push origin main
+
+      - name: Generate AI Post
+        env:
+          DEEPSK_API_KEY: ${{ secrets.DEEPSK_API_KEY }}
+        run: node utils/generatePost.js

@@ -1,48 +1,114 @@
-// utils/generatePost.js
+// // utils/generatePost.js
+// import fs from "fs";
+// import path from "path";
+
+// // --- Config ---
+// const postsDir = path.join(process.cwd(), "pages/posts");
+
+// // --- Helper: create a filename from title ---
+// function slugify(title) {
+//   return title.toLowerCase().replace(/\s+/g, "-").replace(/[^\w-]/g, "");
+// }
+
+// // --- Main function ---
+// async function main() {
+
+// // Create a unique title with date + time
+// const now = new Date();
+// const dateStr = now.toLocaleDateString("en-GB").replace(/\//g, "-"); // e.g., 23-08-2025
+// const timeStr = now.toTimeString().split(" ")[0].replace(/:/g, "-");   // e.g., 22-45-30
+
+// const title = `AI Post ${dateStr} ${timeStr}`; // AI Post 23-08-2025 22-45-30
+
+// const slug = slugify(title);
+// const filename = path.join(postsDir, `${slug}.js`);
+//   const content = `This is an automatically generated AI blog post on ${new Date().toDateString()}. and i have generate this again manually 🚀`;
+
+//   const fileData = `export default function ${slug.replace(/-/g, "_")}() {
+//     return (
+//       <div style={{ padding: "2rem" }}>
+//         <h1>${title}</h1>
+//         <p>${content}</p>
+//       </div>
+//     );
+//   }`;
+
+//   fs.writeFileSync(filename, fileData, "utf8");
+//   console.log(`✅ Created new post: ${filename}`);
+// }
+
+// main();
+
+// import 'dotenv/config';
 import fs from "fs";
 import path from "path";
+import axios from "axios";
+import slugify from "slugify";
+import dotenv from "dotenv";
 
-// --- Config ---
+dotenv.config();
+
+// Folder for blog posts
 const postsDir = path.join(process.cwd(), "pages/posts");
+if (!fs.existsSync(postsDir)) fs.mkdirSync(postsDir, { recursive: true });
 
-// --- Helper: create a filename from title ---
-function slugify(title) {
-  return title.toLowerCase().replace(/\s+/g, "-").replace(/[^\w-]/g, "");
-}
+async function generatePost() {
+  const now = new Date();
+  const dateStr = now.toLocaleDateString("en-GB").replace(/\//g, "-");
+  const timeStr = now.toTimeString().split(" ")[0].replace(/:/g, "-");
 
-// --- Main function ---
-async function main() {
-  // Replace this with a call to a free AI API if you like
-//   const title = `AI Post ${new Date().toLocaleDateString()}`;
-//   const content = `This is an automatically generated AI blog post on ${new Date().toDateString()}. 🚀`;
+  const title = `AI Post ${dateStr} ${timeStr}`;
+  const slug = slugify(title, { lower: true, strict: true });
+  const filename = path.join(postsDir, `${slug}.js`);
 
-//   const slug = slugify(title);
-//   const filename = path.join(postsDir, `${slug}.js`);
+  const prompt = `Write a short, engaging blog post about the latest advancements in AI.`;
 
+  try {
+    const apiKey = process.env.DEEPSEEK_API_KEY;
+    if (!apiKey)
+      throw new Error("Missing OPENROUTER_API_KEY in environment variables.");
 
-
-// Create a unique title with date + time
-const now = new Date();
-const dateStr = now.toLocaleDateString("en-GB").replace(/\//g, "-"); // e.g., 23-08-2025
-const timeStr = now.toTimeString().split(" ")[0].replace(/:/g, "-");   // e.g., 22-45-30
-
-const title = `AI Post ${dateStr} ${timeStr}`; // AI Post 23-08-2025 22-45-30
-
-const slug = slugify(title);
-const filename = path.join(postsDir, `${slug}.js`);
-  const content = `This is an automatically generated AI blog post on ${new Date().toDateString()}. and i have generate this again manually 🚀`;
-
-  const fileData = `export default function ${slug.replace(/-/g, "_")}() {
-    return (
-      <div style={{ padding: "2rem" }}>
-        <h1>${title}</h1>
-        <p>${content}</p>
-      </div>
+    const response = await axios.post(
+      "https://openrouter.ai/api/v1/chat/completions",
+      {
+        model: "deepseek/deepseek-r1:free",
+        messages: [
+          {
+            role: "user",
+            content: prompt,
+          },
+        ],
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${apiKey}`,
+          "Content-Type": "application/json",
+        },
+      }
     );
-  }`;
+    console.log("response", response.data);
+    const content =
+      response.data?.choices?.[0]?.message?.content?.trim() ||
+      "No content generated.";
 
-  fs.writeFileSync(filename, fileData, "utf8");
-  console.log(`✅ Created new post: ${filename}`);
+    const postContent = `
+import React from 'react';
+
+const Post = () => (
+  <article style={{ padding: '2rem' }}>
+    <h1>${title}</h1>
+    <p>${content}</p>
+  </article>
+);
+
+export default Post;
+`;
+
+    fs.writeFileSync(filename, postContent);
+    console.log(`✅ Post generated: ${filename}`);
+  } catch (err) {
+    console.error("❌ Error generating post:", err.message);
+  }
 }
 
-main();
+generatePost();
