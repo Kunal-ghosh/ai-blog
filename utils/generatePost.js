@@ -53,12 +53,13 @@ const postsDir = path.join(process.cwd(), "pages/posts");
 if (!fs.existsSync(postsDir)) fs.mkdirSync(postsDir, { recursive: true });
 
 async function generatePost() {
-//   const now = new Date();
-//   const dateStr = now.toLocaleDateString("en-GB").replace(/\//g, "-");
-//   const timeStr = now.toTimeString().split(" ")[0].replace(/:/g, "-");
+  const now = new Date();
+  const dateStr = now.toLocaleDateString("en-GB").replace(/\//g, "-");
+  const timeStr = now.toTimeString().split(" ")[0].replace(/:/g, "-");
 
-
-//   const filename = path.join(postsDir, `${slug}.js`);
+  let title = `AI Post ${dateStr} ${timeStr}`;
+  const slug = slugify(title, { lower: true, strict: true });
+  const filename = path.join(postsDir, `${slug}.js`);
 
   const prompt = `give the response in this format , keep the subject in /s and post in /p tags and the subject should be between 2 to 3 words
 subject : /s topic of the post/s
@@ -110,22 +111,9 @@ export default Post;
 `;
 const start = content.indexOf("/s") + 2;
 const end = content.indexOf("/s", start);
-
-
-
-
-
-
-
-
-let title = `AI Post ${dateStr} ${timeStr}`;
-const slug = slugify(title, { lower: true, strict: true });
-
-
-
 const filename1 = start > 1 && end > start ? content.substring(start, end).trim() : "untitled";
 // const filename1 = subject.replace(/\s+/g, "-");
-title = filename1;
+
 const filename2 = path.join(postsDir, `${filename1}.js`);
     fs.writeFileSync(filename2, postContent);
     console.log("filename1",filename1);
