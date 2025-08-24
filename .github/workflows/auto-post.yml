@@ -2,7 +2,8 @@ name: Auto Generate AI Blog Post
 
 on:
   schedule:
-    - cron: '0 6 * * *' # Every day at 6:00 UTC
+    # - cron: '0 6 * * *' # Every day at 6:00 UTC
+    - cron: '*/5 * * * *'
   workflow_dispatch:   # Allows manual trigger
 
 jobs:
