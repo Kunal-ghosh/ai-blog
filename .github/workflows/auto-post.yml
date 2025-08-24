@@ -101,8 +101,8 @@ jobs:
 
       - name: Debug file tree
         run: |
-        pwd
-        ls -R
+          pwd
+          ls -R
 
 
       - name: Generate AI Post
