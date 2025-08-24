@@ -99,6 +99,12 @@ jobs:
           git config --global user.name "Kunal-ghosh"
           git config --global user.email "kunalghosh5135@gmail.com"
 
+      - name: Debug file tree
+        run: |
+        pwd
+        ls -R
+
+
       - name: Generate AI Post
         env:
           DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
