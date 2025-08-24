@@ -54,34 +54,34 @@ post : /p text /p
       response.data?.choices?.[0]?.message?.content?.trim() ||
       "No content generated.";
 
-    // Extract subject from content
-    const start = content.indexOf("/s") + 2;
-    const end = content.indexOf("/s", start);
-    const subject =
-      start > 1 && end > start
-        ? content.substring(start, end).trim()
-        : "untitled";
-
-    // Create slug from subject
-    const slug = slugify(subject, { lower: true, strict: true });
-    const filename = path.join(postsDir, `${slug}.js`);
-
     const postContent = `
 import React from 'react';
 
 const Post = () => (
   <article style={{ padding: '2rem' }}>
-    <h1>${subject}</h1>
+    <h1>${title}</h1>
     <p>${content}</p>
   </article>
 );
 
 export default Post;
 `;
+    const start = content.indexOf("/s") + 2;
+    const end = content.indexOf("/s", start);
 
-    fs.writeFileSync(filename, postContent);
-    console.log("subject:", subject);
-    console.log(`✅ Post generated: ${filename}`);
+    const title = filename1;
+    const slug = slugify(title, { lower: true, strict: true });
+
+    const filename1 =
+      start > 1 && end > start
+        ? content.substring(start, end).trim()
+        : "untitled";
+    // const filename1 = subject.replace(/\s+/g, "-");
+
+    const filename2 = path.join(postsDir, `${filename1}.js`);
+    fs.writeFileSync(filename2, postContent);
+    console.log("filename1", filename1);
+    console.log(`✅ Post generated: ${filename2}`);
   } catch (err) {
     console.error("❌ Error generating post:", err.message);
   }
