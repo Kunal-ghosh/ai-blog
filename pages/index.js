@@ -136,9 +136,9 @@ export default function Home({ posts }) {
       <ul>
         {posts.map((post) => (
           <li key={post.slug} style={{ marginBottom: "10px" }}>
-            <a href={`#/posts/${post.slug}`}>
+            <Link href={`/posts/${post.slug}`}>
               <strong>{post.title}</strong>
-            </a>
+            </Link>
           </li>
         ))}
       </ul>
@@ -168,46 +168,3 @@ export async function getStaticProps() {
   };
 }
 
-
-
-
-
-
-
-// import fs from "fs";
-// import path from "path";
-// import Link from "next/link";
-
-// export default function Home({ posts }) {
-//   return (
-//     <div style={{ fontFamily: "Arial, sans-serif", padding: "20px" }}>
-//       <h1>🤖 AI Auto Blog</h1>
-//       <p>Daily AI-generated posts. Hosted on GitHub Pages.</p>
-
-//       <ul>
-//         {posts.map((post) => (
-//           <li key={post.slug} style={{ marginBottom: "10px" }}>
-//             <Link href={`/posts/${post.slug}`}>
-//               <strong>{post.title}</strong>
-//             </Link>
-//           </li>
-//         ))}
-//       </ul>
-//     </div>
-//   );
-// }
-
-// export async function getStaticProps() {
-//   const postsDir = path.join(process.cwd(), "posts");
-//   const filenames = fs.readdirSync(postsDir);
-
-//   const posts = filenames.map((filename) => {
-//     const slug = filename.replace(".json", "");
-//     const raw = fs.readFileSync(path.join(postsDir, filename), "utf-8");
-//     const { title } = JSON.parse(raw);
-
-//     return { slug, title };
-//   });
-
-//   return { props: { posts } };
-// }
