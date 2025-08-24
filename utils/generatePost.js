@@ -66,22 +66,27 @@ const Post = () => (
 
 export default Post;
 `;
+
+    // Extract subject from content
     const start = content.indexOf("/s") + 2;
     const end = content.indexOf("/s", start);
 
-    const title = filename1;
-    const slug = slugify(title, { lower: true, strict: true });
-
-    const filename1 =
+    const subject =
       start > 1 && end > start
         ? content.substring(start, end).trim()
         : "untitled";
-    // const filename1 = subject.replace(/\s+/g, "-");
 
-    const filename2 = path.join(postsDir, `${filename1}.js`);
-    fs.writeFileSync(filename2, postContent);
-    console.log("filename1", filename1);
-    console.log(`✅ Post generated: ${filename2}`);
+    // Create slug from subject
+    const slug = slugify(subject, { lower: true, strict: true });
+    const filename = path.join(postsDir, `${slug}.js`);
+
+    // Use subject as title for the post
+    const title = subject;
+
+    fs.writeFileSync(filename, postContent);
+    console.log("subject:", subject);
+    console.log("slug:", slug);
+    console.log(`✅ Post generated: ${filename}`);
   } catch (err) {
     console.error("❌ Error generating post:", err.message);
   }
