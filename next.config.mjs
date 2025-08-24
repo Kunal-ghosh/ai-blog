@@ -48,8 +48,9 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  basePath: "/ai-blog",   // 👈 your repo name here
+  basePath: "/ai-blog", // 👈 your repo name here
   assetPrefix: "/ai-blog/",
+  trailingSlash: true, // Add this for better GitHub Pages compatibility
 };
 
 export default nextConfig;

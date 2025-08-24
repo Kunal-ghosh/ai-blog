@@ -136,9 +136,9 @@ export default function Home({ posts }) {
       <ul>
         {posts.map((post) => (
           <li key={post.slug} style={{ marginBottom: "10px" }}>
-            <Link href={`/posts/${post.slug}`}>
+            <a href={`#/posts/${post.slug}`}>
               <strong>{post.title}</strong>
-            </Link>
+            </a>
           </li>
         ))}
       </ul>
