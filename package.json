@@ -19,5 +19,6 @@
   "devDependencies": {
     "gh-pages": "^6.3.0"
   },
-  "type": "module"
+  "type": "module",
+  "homepage": "https://Kunal-ghosh.github.io/ai-blog"
 }

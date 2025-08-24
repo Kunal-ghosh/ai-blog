@@ -4,12 +4,18 @@
 #   schedule:
 #     # - cron: '0 6 * * *' # Every day at 6:00 UTC
 #     - cron: '*/3 * * * *'
-#   workflow_dispatch:   # Allows manual trigger
+#   workflow_dispatch:
+#   # Allows manual trigger
+#   permissions:
+#     contents: write
+#     pages: write
+#     id-token: write
+
 
 # jobs:
 #   generate-and-deploy:
 #     runs-on: ubuntu-latest
-
+  
 #     steps:
 #       - name: Checkout repo
 #         uses: actions/checkout@v3
@@ -59,13 +65,16 @@
 
 
 
-
 name: Auto Generate AI Blog Post
 
 on:
   schedule:
-    - cron: '*/3 * * * *'
+    # - cron: '0 6 * * *'   # Every day at 06:00 UTC
+    - cron: '*/2 * * * *'  # Example: every 30 min (avoid spamming every 3 min)
   workflow_dispatch:
+
+permissions:
+  contents: write
 
 jobs:
   generate-and-deploy:
@@ -73,28 +82,41 @@ jobs:
 
     steps:
       - name: Checkout repo
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: 18
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
+
+      - name: Setup Git identity
+        run: |
+          git config --global user.name "Kunal-ghosh"
+          git config --global user.email "kunalghosh5135@gmail.com"
 
       - name: Generate AI Post
         env:
           DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
         run: node utils/generatePost.js
 
-      - name: Commit generated post
+      - name: Commit generated post (to main)
         run: |
           git add pages/posts
           git commit -m "Add auto-generated post [skip ci]" || echo "No changes"
-          git push origin main
+          # Re-point remote to use token so push is authenticated
+          git remote set-url origin "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git"
+          git push origin HEAD:main
 
-      - name: Deploy to GitHub Pages
+      - name: Build site
+        run: npm run build
+
+      - name: Deploy to GitHub Pages (gh-pages npm)
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # gh-pages reads GITHUB_TOKEN or GH_TOKEN
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: npm run deploy
