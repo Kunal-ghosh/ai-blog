@@ -137,7 +137,7 @@ export default function Home({ posts }) {
         {posts.map((post) => (
           <li key={post.slug} style={{ marginBottom: "10px" }}>
             <Link href={`/posts/${post.slug}`}>
-              <strong>{post.title}</strong>
+              <strong>{post.subject}</strong>
             </Link>
           </li>
         ))}
@@ -153,11 +153,11 @@ export async function getStaticProps() {
 
   const posts = filenames.map((filename) => {
     const slug = filename.replace(".js", "");
-    const title = slug.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
+    const subject = slug.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
 
     return {
       slug,
-      title,
+      subject,
     };
   });
 
