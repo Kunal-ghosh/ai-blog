@@ -101,8 +101,20 @@ jobs:
 
       - name: Debug file tree
         run: |
-          pwd
-          ls -R
+          set -e
+          CANDIDATES=("pages/utils/generatePost.js" "utils/generatePost.js" "pages/generatePost.js" "scripts/generatePost.js")
+          FOUND=""
+          for p in "${CANDIDATES[@]}"; do
+            if [ -f "$p" ]; then FOUND="$p"; break; fi
+          done
+          if [ -z "$FOUND" ]; then
+            echo "❌ generatePost.js not found. Checked: ${CANDIDATES[*]}"
+            echo "Current tree:"
+            ls -R
+            exit 1
+          fi
+          echo "✅ Using $FOUND"
+          node "$FOUND"
 
 
       - name: Generate AI Post
