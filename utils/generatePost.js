@@ -92,8 +92,8 @@ post : /p text /p
                 },
             }
         );
-        console.log("response", response.data);
-        const content =
+        // console.log("response", response.data);
+        let content =
             response.data?.choices?.[0]?.message?.content?.trim() ||
             "No content generated.";
 
@@ -105,17 +105,23 @@ post : /p text /p
         const slug = slugify(title, { lower: true, strict: true });
         const filename = path.join(postsDir, `${slug}.js`);
 
+        const startcontent = content.indexOf("/p") + 2;
+        const endcontent = content.indexOf("/p", startcontent);
+        let content1 = startcontent > 1 && endcontent > startcontent ? content.substring(startcontent, endcontent).trim() : "untitled";
+        content = content1;
+        console.log("content1", content1);
+        console.log("content", content);
 
         const postContent = `
         import React from 'react';
-            
+
         const Post = () => (
           <article style={{ padding: '2rem' }}>
             <h1>${title}</h1>
             <p>${content}</p>
           </article>
         );
-        
+
         export default Post;
         `;
 
