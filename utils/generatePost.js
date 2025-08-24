@@ -61,7 +61,12 @@ async function generatePost() {
   const slug = slugify(title, { lower: true, strict: true });
   const filename = path.join(postsDir, `${slug}.js`);
 
-  const prompt = `Write a short, engaging blog post about the latest advancements in AI.`;
+  const prompt = `give the response in this format , keep the subject in /s and post in /p tags and the subject should be between 2 to 3 words
+subject : /s topic of the post/s
+post : /p text /p
+
+                Write a 2 lines on a latest event in the world. and give a topic name for the post
+`;
 
   try {
     const apiKey = process.env.DEEPSEEK_API_KEY;
@@ -72,6 +77,7 @@ async function generatePost() {
       "https://openrouter.ai/api/v1/chat/completions",
       {
         model: "deepseek/deepseek-r1:free",
+        // model: "openai/gpt-4o",
         messages: [
           {
             role: "user",
@@ -103,9 +109,14 @@ const Post = () => (
 
 export default Post;
 `;
-
-    fs.writeFileSync(filename, postContent);
-    console.log(`✅ Post generated: ${filename}`);
+const start = content.indexOf("/s") + 2;
+const end = content.indexOf("/s", start);
+const filename1 = start > 1 && end > start ? content.substring(start, end).trim() : "untitled";
+// const filename1 = subject.replace(/\s+/g, "-");
+const filename2 = path.join(postsDir, `${filename1}.js`);
+    fs.writeFileSync(filename2, postContent);
+    console.log("filename1",filename1);
+    console.log(`✅ Post generated: ${filename2}`);
   } catch (err) {
     console.error("❌ Error generating post:", err.message);
   }
