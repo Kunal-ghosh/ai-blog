@@ -38,5 +38,5 @@ jobs:
 
       - name: Generate AI Post
         env:
-          DEEPSK_API_KEY: ${{ secrets.DEEPSK_API_KEY }}
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
         run: node utils/generatePost.js
