@@ -120,7 +120,7 @@ jobs:
       - name: Generate AI Post
         env:
           DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
-        run: node pages/utils/generatePost.js
+        run: node utils/generatePost.js
 
 
       - name: Commit generated post (to main)
