@@ -122,6 +122,18 @@ jobs:
           DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
         run: node utils/generatePost.js
 
+      - name: Show generated posts
+        run: |
+          echo "Files in pages/posts:"
+          ls -la pages/posts
+
+      - name: Print latest generated post
+        run: |
+          FILE=$(ls -t pages/posts/*.js | head -n1)
+          echo "✅ Latest generated file: $FILE"
+          echo "---- FILE CONTENT ----"
+          cat "$FILE"
+          echo "----------------------"
 
       - name: Commit generated post (to main)
         run: |
