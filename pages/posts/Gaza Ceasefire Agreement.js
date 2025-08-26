@@ -4,7 +4,7 @@
         const Post = () => (
           <article style={{ padding: '2rem' }}>
             <h1>Gaza Ceasefire Agreement</h1>
-            <p>Egypt and Qatar broker a 72-hour Israel-Gaza truce, effective today, facilitating humanitarian aid and hostage releases. The deal follows weeks of escalating violence, marking a tentative step toward regional stabilization.</p>
+            <p>Israel and Hamas agreed to a fragile ceasefire, mediated by Egypt and the U.S., after escalating clashes in Gaza. The truce aims to ease humanitarian crises, though tensions persist over long-term resolutions.</p>
           </article>
         );
 
