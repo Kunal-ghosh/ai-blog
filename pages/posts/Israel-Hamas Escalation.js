@@ -4,7 +4,7 @@
         const Post = () => (
           <article style={{ padding: '2rem' }}>
             <h1>Israel-Hamas Escalation</h1>
-            <p>Recent clashes between Israel and Hamas have intensified, displacing thousands amid international calls for ceasefire. Heavy airstrikes and rocket attacks mark the deadliest conflict surge since 2021, sparking global humanitarian concerns.</p>
+            <p>Israeli airstrikes and Hamas rocket attacks intensified on October 7, 2023, killing hundreds and displacing thousands. Global leaders urge ceasefire amid escalating humanitarian crises in Gaza.</p>
           </article>
         );
 
