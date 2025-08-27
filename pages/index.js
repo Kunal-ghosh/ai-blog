@@ -108,6 +108,7 @@ export default function Home({ posts }) {
           console.error("Error fetching image:", err);
         }
       }
+      
       setImages(results);
     }
 
