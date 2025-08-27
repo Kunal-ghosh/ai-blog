@@ -78,6 +78,7 @@ import path from "path";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import styles from "../styles/Home.module.css"; // 👈 import css module
+import "../styles/globals.css";
 
 export default function Home({ posts }) {
   const [images, setImages] = useState({});
@@ -133,15 +134,7 @@ export default function Home({ posts }) {
           {posts.map((post) => (
             <div
               key={post.slug}
-              // className={styles.card}
-              style={{
-                background: "#fff",
-                padding: "1.5rem",
-                borderRadius: "12px",
-                boxShadow: "0 4px 8px rgba(0,0,0,0.08)",
-                transition: "transform 0.2s ease",
-                width: "100%"
-              }}
+              className={styles.card}
             >
               {images[post.slug] && (
                 <img
