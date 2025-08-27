@@ -78,7 +78,7 @@ import path from "path";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import styles from "../styles/Home.module.css"; // 👈 import css module
-import "../styles/globals.css";
+// import "../styles/globals.css";
 
 export default function Home({ posts }) {
   const [images, setImages] = useState({});
