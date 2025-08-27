@@ -28,6 +28,7 @@ export default function Home({ posts }) {
             <div key={post.slug} className={styles.card}>
               <h2>{post.title}</h2>
               <p>{post.content}</p>
+              <h1>this is test</h1>
               <p className={styles.date}>{date}</p>
             </div>
           ))}
