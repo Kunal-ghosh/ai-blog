@@ -4,7 +4,7 @@ name: Auto Generate AI Blog Post
 on:
   schedule:
     # - cron: '0 6 * * *'   # Every day at 06:00 UTC
-    - cron: '*/2 * * * *'  # Example: every 30 min (avoid spamming every 3 min)
+    - cron: '*/10 * * * *'  # Example: every 30 min (avoid spamming every 3 min)
   workflow_dispatch:
 
 permissions:
