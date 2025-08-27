@@ -140,7 +140,7 @@ export default function Home({ posts }) {
                 borderRadius: "12px",
                 boxShadow: "0 4px 8px rgba(0,0,0,0.08)",
                 transition: "transform 0.2s ease",
-                width: "100%",
+                width: "100%"
               }}
             >
               {images[post.slug] && (
