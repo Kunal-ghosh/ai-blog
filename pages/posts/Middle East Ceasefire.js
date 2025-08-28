@@ -4,7 +4,7 @@
         const Post = () => (
           <article style={{ padding: '2rem' }}>
             <h1>Middle East Ceasefire</h1>
-            <p>A fragile ceasefire between Israel and Hamas took effect in late November 2023, pausing conflict in Gaza. The truce enabled aid delivery and hostage exchanges amid international calls for lasting peace.</p>
+            <p>Egypt and the UN broker a fragile truce between Israel and Hamas, halting hostilities temporarily. Aid flows into Gaza amid hopes for sustained peace talks.</p>
           </article>
         );
 
