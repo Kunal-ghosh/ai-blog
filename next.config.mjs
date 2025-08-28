@@ -6,6 +6,7 @@ const nextConfig = {
   },
   basePath: "/ai-blog",   // 👈 your repo name here
   assetPrefix: "/ai-blog/",
+  trailingSlash: true
 };
 
 export default nextConfig;
