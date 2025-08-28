@@ -49,6 +49,10 @@
     padding-bottom: 1.25rem;
   }
 
+  .sidebar-title {
+    color: rgb(0, 0, 0);
+  }
+
   @media (min-width: 768px) {
     .sidebar {
       width: 16rem;
