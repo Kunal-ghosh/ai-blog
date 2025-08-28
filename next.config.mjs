@@ -4,9 +4,12 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  basePath: "/ai-blog",   // 👈 your repo name here
+  basePath: "/ai-blog", // 👈 your repo name here
   assetPrefix: "/ai-blog/",
-  trailingSlash: true
+  trailingSlash: true,
+
+  // Ensure consistent asset generation
+  generateBuildId: () => "build",
 };
 
 export default nextConfig;
