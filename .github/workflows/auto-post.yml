@@ -76,15 +76,5 @@ jobs:
           # Re-point remote to use token so push is authenticated
           git remote set-url origin "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git"
           git push origin HEAD:main
-          - name: Build site
-          run: npm run build
-          
-        # git commit -m "Add auto-generated post [skip ci]" || echo "No changes"
-        # - name: Deploy to GitHub Pages (gh-pages npm)
-          # env:
-            # GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # gh-pages reads 
-            # GITHUB_TOKEN or GH_TOKEN
-            # GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          # run: npm run deploy
       # Note: No manual deployment needed here
       # The deploy.yml workflow will automatically trigger when we push to main
