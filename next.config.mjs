@@ -8,8 +8,7 @@ const nextConfig = {
   assetPrefix: "/ai-blog/",
   trailingSlash: true,
 
-  // Ensure consistent asset generation
-  generateBuildId: () => "build",
+
 };
 
 export default nextConfig;
