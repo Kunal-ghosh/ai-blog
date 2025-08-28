@@ -5,7 +5,7 @@ const nextConfig = {
     unoptimized: true,
   },
   basePath: "/ai-blog",   // 👈 your repo name here
-  assetPrefix: "/ai-blog/",
+  // assetPrefix: "/ai-blog/",
 };
 
 export default nextConfig;
