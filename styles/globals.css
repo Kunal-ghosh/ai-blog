@@ -17,7 +17,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: #f5f5f5;
   color: #333;
-  /* Force new CSS hash generation */
 }
 
 /* Card component */
@@ -42,7 +41,7 @@ body {
   gap: 1.25rem;
   padding: 1.25rem;
   font-family: ui-sans-serif, system-ui, sans-serif;
-  background-color: rgb(255, 255, 255);
+  background-color: rgb(255, 0, 0);
   color: rgb(255, 0, 0);
   min-height: 100vh;
 }
