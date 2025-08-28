@@ -77,8 +77,6 @@ import fs from "fs";
 import path from "path";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import styles from "../styles/Home.module.css"; // 👈 import css module
-// import "../styles/globals.css";
 
 export default function Home({ posts }) {
   const [images, setImages] = useState({});
@@ -116,36 +114,34 @@ export default function Home({ posts }) {
   }, [posts]);
 
   return (
-    <div className={styles.container}>
+    <div className="main-container">
       {/* Sidebar */}
-      <aside className={styles.sidebar}>
-        <h2>Topics</h2>
-        <ul>
+      <aside className="sidebar">
+        <h2 className="sidebar-title">Topics</h2>
+        <ul className="sidebar-list">
           {posts.map((post) => (
-            <li key={post.slug}>
-              <Link href={`/posts/${post.slug}`}>{post.title}</Link>
+            <li key={post.slug} className="sidebar-list-item">
+              <Link href={`/posts/${post.slug}`} className="sidebar-link">
+                {post.title}
+              </Link>
             </li>
           ))}
         </ul>
       </aside>
 
-      <main className={styles.content}>
-        <div className={styles.grid}>
+      <main className="main-content">
+        <div className="grid-container">
           {posts.map((post) => (
-            <div
-              key={post.slug}
-              className={styles.card}
-            >
+            <div key={post.slug} className="card">
               {images[post.slug] && (
                 <img
                   src={images[post.slug]}
                   alt={post.title}
-                  className={styles.cardImage}
+                  className="post-image"
                 />
               )}
-              <h2>{post.title}</h2>
-              <p>{post.content}</p>
-              <p className={styles.date}>{date}</p>
+              <h2 className="post-title">{post.title}</h2>
+              <p className="post-content">{post.content}</p>
             </div>
           ))}
         </div>
