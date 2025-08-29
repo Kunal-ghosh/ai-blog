@@ -9,6 +9,8 @@ on:
 
 permissions:
   contents: write
+  pages: write
+  id-token: write
 
 jobs:
   generate-and-deploy:
@@ -82,5 +84,21 @@ jobs:
             git remote set-url origin "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git"
           fi
           git push origin HEAD:main
-      # Note: No manual deployment needed here
-      # The deploy.yml workflow will automatically trigger when we push to main
+          
+      - name: Build with Next.js
+        run: npm run build
+      
+      - name: Add .nojekyll file
+        run: touch out/.nojekyll
+      
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+      
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: './out'
+      
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
