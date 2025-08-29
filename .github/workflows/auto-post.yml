@@ -70,11 +70,17 @@ jobs:
           echo "----------------------"
 
       - name: Commit generated post (to main)
+        env:
+          PAT_TOKEN: ${{ secrets.PAT_TOKEN }}
         run: |
           git add pages/posts
           git commit -m "Add auto-generated post" || echo "No changes"
-          # Re-point remote to use token so push is authenticated
-          git remote set-url origin "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git"
+          # Use PAT token to allow triggering other workflows
+          if [ -n "$PAT_TOKEN" ]; then
+            git remote set-url origin "https://x-access-token:$PAT_TOKEN@github.com/${{ github.repository }}.git"
+          else
+            git remote set-url origin "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git"
+          fi
           git push origin HEAD:main
       # Note: No manual deployment needed here
       # The deploy.yml workflow will automatically trigger when we push to main
