@@ -4,7 +4,7 @@
         const Post = () => (
           <article style={{ padding: '2rem' }}>
             <h1>Paris 2024 Preparations</h1>
-            <p>The Paris 2024 Olympic torch relay commenced in Marseille, drawing global attention as the city unveils sustainable infrastructure and enhanced security measures ahead of the Games. New venues like the Adidas Arena highlight innovation, while athletes gear up for the summer spectacle.</p>
+            <p>Paris accelerates infrastructure and security plans for the 2024 Summer Olympics, prioritizing sustainability with eco-friendly venues. Over 10,000 athletes from 200+ nations will compete, while organizers aim for a carbon-neutral event amid global climate concerns.</p>
           </article>
         );
 
