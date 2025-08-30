@@ -4,7 +4,7 @@
         const Post = () => (
           <article style={{ padding: '2rem' }}>
             <h1>Paris 2024 Sustainability</h1>
-            <p>Paris 2024 organizers unveil plans for the first Olympic Games powered entirely by renewable energy, featuring solar farms and temporary wooden structures to minimize carbon footprint. The event aims to set a new benchmark for eco-friendly mega-sporting events globally.</p>
+            <p>The 2024 Paris Olympics prioritize eco-friendly initiatives, featuring 95% existing or temporary venues and carbon-neutral operations. New sports like breaking debut, aligning with global climate goals.</p>
           </article>
         );
 
