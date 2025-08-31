@@ -176,7 +176,6 @@ export async function getStaticProps() {
         title,
         content,
       };
-      
     });
 
   return {
