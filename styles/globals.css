@@ -21,7 +21,7 @@ body {
 
 /* Card component */
 .card {
-  background-color: white;
+  background-color: rgb(82, 16, 16);
   padding: 1.5rem;
   border-radius: 0.75rem;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -41,8 +41,8 @@ body {
   gap: 1.25rem;
   padding: 1.25rem;
   font-family: ui-sans-serif, system-ui, sans-serif;
-  background-color: rgb(255, 0, 0);
-  color: rgb(255, 0, 0);
+  background-color: rgb(255, 255, 255);
+  color: rgb(78, 25, 25);
   min-height: 100vh;
 }
 
@@ -57,10 +57,11 @@ body {
   width: 100%;
   border-bottom: 1px solid rgb(209, 213, 219);
   padding-bottom: 1.25rem;
-}
-
-.sidebar-title {
-  color: rgb(0, 0, 0);
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  z-index: 10;
 }
 
 @media (min-width: 768px) {
@@ -70,6 +71,10 @@ body {
     border-right: 1px solid rgb(209, 213, 219);
     padding-bottom: 0;
     padding-right: 1.25rem;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow: hidden;
   }
 }
 
@@ -79,6 +84,9 @@ body {
   font-size: 1.25rem;
   font-weight: 600;
   color: rgb(0, 0, 0);
+  flex-shrink: 0;
+  padding: 1rem 0;
+  background-color: rgb(255, 255, 255);
 }
 
 /* Sidebar list */
@@ -86,6 +94,28 @@ body {
   list-style: none;
   padding: 0;
   margin: 0;
+  flex: 1;
+  overflow-y: auto;
+  padding-bottom: 1rem;
+}
+
+/* Custom scrollbar for webkit browsers */
+.sidebar-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.sidebar-list::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 3px;
+}
+
+.sidebar-list::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 3px;
+}
+
+.sidebar-list::-webkit-scrollbar-thumb:hover {
+  background: #a1a1a1;
 }
 
 /* Sidebar list item */
@@ -112,7 +142,7 @@ body {
   flex-direction: column;
   gap: 0.125rem;
   padding: 1rem;
-  background-color: white;
+  background-color: rgb(41, 23, 23);
   color: black;
 }
 
@@ -139,7 +169,8 @@ body {
 
 @media (min-width: 1024px) {
   .grid-container {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+    width: 60%;
   }
 }
 

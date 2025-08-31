@@ -91,16 +91,27 @@ export default function Home({ posts }) {
       const results = {};
       for (const post of posts) {
         try {
-          const res = await fetch(
-            `/api/wikiImage?query=${encodeURIComponent(post.title)}`,
-            {
-              headers: { Accept: "application/json" },
-            }
+          // Direct Wikipedia API call (client-side)
+          const searchRes = await fetch(
+            `https://en.wikipedia.org/w/api.php?action=query&list=search&srsearch=${encodeURIComponent(
+              post.title
+            )}&format=json&origin=*`
           );
+          const searchData = await searchRes.json();
 
-          const data = await res.json();
-          if (data.image) {
-            results[post.slug] = data.image;
+          if (searchData.query.search.length > 0) {
+            const pageTitle = searchData.query.search[0].title;
+
+            const summaryRes = await fetch(
+              `https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(
+                pageTitle
+              )}`
+            );
+            const summaryData = await summaryRes.json();
+
+            if (summaryData.thumbnail) {
+              results[post.slug] = summaryData.thumbnail.source;
+            }
           }
         } catch (err) {
           console.error("Error fetching image:", err);
