@@ -4,7 +4,7 @@
         const Post = () => (
           <article style={{ padding: '2rem' }}>
             <h1>Israel-Hamas Ceasefire</h1>
-            <p>The UN Security Council approved a resolution backing a Gaza ceasefire, prompting mixed reactions globally. Hamas welcomed the move, while Israel criticized it, vowing to continue military operations until hostages are freed.</p>
+            <p>On November 24, 2023, Israel and Hamas agreed to a four-day ceasefire mediated by Qatar and Egypt, including hostage-prisoner exchanges and increased humanitarian aid to Gaza. The truce marks a temporary pause in weeks of intensified conflict, offering hope for civilian relief.</p>
           </article>
         );
 
