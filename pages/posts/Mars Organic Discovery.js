@@ -4,7 +4,7 @@
         const Post = () => (
           <article style={{ padding: '2rem' }}>
             <h1>Mars Organic Discovery</h1>
-            <p>NASA's Perseverance rover uncovered traces of ancient organic compounds in Jezero Crater, reigniting hopes for past microbial life on Mars. The findings, analyzed from rock samples, could reshape understanding of the Red Planet's history.</p>
+            <p>NASA's Perseverance Rover has unearthed ancient organic molecules in Mars' Jezero Crater, bolstering evidence of the planet's habitable past. The find sparks renewed optimism for future astrobiology research and upcoming sample-return missions in the 2030s.</p>
           </article>
         );
 
