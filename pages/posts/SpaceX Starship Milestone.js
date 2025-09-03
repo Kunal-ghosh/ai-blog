@@ -4,7 +4,7 @@
         const Post = () => (
           <article style={{ padding: '2rem' }}>
             <h1>SpaceX Starship Milestone</h1>
-            <p>SpaceX completed its fourth Starship test flight, achieving a successful landing and advancing reusable rocket technology. The mission marked progress toward Mars colonization and orbital deployment capabilities.</p>
+            <p>SpaceX successfully completed its fourth Starship test flight, achieving milestones like first-stage landing and controlled re-entry. The mission advances goals for Mars colonization and reusable deep-space exploration.</p>
           </article>
         );
 
