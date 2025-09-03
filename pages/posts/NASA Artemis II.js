@@ -4,7 +4,7 @@
         const Post = () => (
           <article style={{ padding: '2rem' }}>
             <h1>NASA Artemis II</h1>
-            <p>NASA announces the Artemis II crew, targeting a 2024 lunar flyby with the first woman and person of color on a Moon mission. The crewed Orion spacecraft aims to test systems for future deep-space exploration.</p>
+            <p>NASA announces Artemis II crew, targeting late 2024 for the first crewed lunar mission in 50 years. Astronauts Reid Wiseman, Victor Glover, Christina Koch, and Jeremy Hanson will orbit the Moon, paving the way for future deep-space exploration.</p>
           </article>
         );
 
