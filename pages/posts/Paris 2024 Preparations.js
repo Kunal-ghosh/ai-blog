@@ -4,7 +4,7 @@
         const Post = () => (
           <article style={{ padding: '2rem' }}>
             <h1>Paris 2024 Preparations</h1>
-            <p>Organizers unveiled an AI-driven security system for the Paris Olympics and confirmed the Seine River will host open-water events after a $1.5 billion cleanup. The focus remains on balancing cutting-edge tech with sustainability goals.</p>
+            <p>With the Paris Olympics set for July 2024, athletes worldwide intensify training amid innovations in eco-friendly infrastructure and AI-driven performance tracking. The event also introduces breakdancing as a new sport, aiming to leave a legacy of sustainability and global unity.</p>
           </article>
         );
 
