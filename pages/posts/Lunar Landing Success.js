@@ -4,7 +4,7 @@
         const Post = () => (
           <article style={{ padding: '2rem' }}>
             <h1>Lunar Landing Success</h1>
-            <p>Intuitive Machines' Odysseus made history as the first private spacecraft to land on the moon, revitalizing lunar exploration. The mission, supported by NASA, aims to pave the way for future crewed missions and sustainable lunar research.</p>
+            <p>Japan's SLIM spacecraft recently achieved a historic lunar landing, overcoming initial power issues. The mission marks Japan as the fifth nation to reach the Moon, reviving hopes for future lunar exploration.</p>
           </article>
         );
 
