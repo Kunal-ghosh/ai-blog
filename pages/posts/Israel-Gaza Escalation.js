@@ -4,7 +4,7 @@
         const Post = () => (
           <article style={{ padding: '2rem' }}>
             <h1>Israel-Gaza Escalation</h1>
-            <p>Israel intensified ground operations in Gaza on October 27, 2023, amid rising civilian casualties. Global leaders urge ceasefire as humanitarian crises deepen across the region.</p>
+            <p>Recent clashes between Israel and Hamas in Gaza intensified, with airstrikes and rocket fire resulting in civilian casualties. Global leaders urge de-escalation amid rising humanitarian concerns over infrastructure damage and shortages.</p>
           </article>
         );
 
