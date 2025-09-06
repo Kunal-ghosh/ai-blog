@@ -4,7 +4,7 @@
         const Post = () => (
           <article style={{ padding: '2rem' }}>
             <h1>Space Exploration Breakthrough</h1>
-            <p>NASA's Europa Clipper launches October 2024 to study Jupiter's icy moon Europa, aiming to uncover potential habitats for life beneath its frozen crust. The mission could revolutionize understanding of ocean worlds in our solar system.</p>
+            <p>NASA's James Webb Telescope recently captured unprecedented images of ancient galaxies, shedding light on early universe mysteries. The discovery could reshape cosmological theories and enhance understanding of stellar evolution.</p>
           </article>
         );
 
