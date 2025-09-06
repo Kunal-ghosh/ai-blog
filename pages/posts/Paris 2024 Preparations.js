@@ -4,7 +4,7 @@
         const Post = () => (
           <article style={{ padding: '2rem' }}>
             <h1>Paris 2024 Preparations</h1>
-            <p>With the Paris Olympics set for July 2024, athletes worldwide intensify training amid innovations in eco-friendly infrastructure and AI-driven performance tracking. The event also introduces breakdancing as a new sport, aiming to leave a legacy of sustainability and global unity.</p>
+            <p>As the Paris 2024 Summer Olympics approach, organizers unveil AI-driven sustainability initiatives and cutting-edge venues. Over 10,000 athletes from 200+ nations will compete, amid heightened focus on eco-friendly infrastructure and equitable representation.</p>
           </article>
         );
 
