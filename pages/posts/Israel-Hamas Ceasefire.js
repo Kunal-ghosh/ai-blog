@@ -4,7 +4,7 @@
         const Post = () => (
           <article style={{ padding: '2rem' }}>
             <h1>Israel-Hamas Ceasefire</h1>
-            <p>A fragile ceasefire between Israel and Hamas, mediated by Egypt and the U.S., began on May 21, 2024, halting weeks of intense conflict. The agreement includes provisional aid access to Gaza and hostage-prisoner exchanges, though long-term stability remains uncertain.</p>
+            <p>A temporary ceasefire between Israel and Hamas took effect, allowing aid into Gaza and hostage-prisoner exchanges. Tensions remain high as global leaders push for extended peace talks amid ongoing regional instability.</p>
           </article>
         );
 
