@@ -4,7 +4,7 @@
         const Post = () => (
           <article style={{ padding: '2rem' }}>
             <h1>Iceland Volcanic Eruption</h1>
-            <p>A volcanic eruption in Iceland's Reykjanes Peninsula forced evacuations in Grindavik, spewing lava and disrupting travel. The event highlights ongoing geological instability, with experts monitoring potential wider impacts.</p>
+            <p>A volcanic eruption on Iceland's Reykjanes Peninsula forced evacuations and disrupted hot water supplies on February 8, 2024. Lava flows damaged infrastructure, underscoring renewed geological volatility in the region.</p>
           </article>
         );
 
