@@ -4,7 +4,7 @@
         const Post = () => (
           <article style={{ padding: '2rem' }}>
             <h1>Mars Sample Return</h1>
-            <p>NASA and ESA collaborate on Mars Sample Return mission, with Perseverance rover collecting Martian rocks. The samples aim to reveal clues about ancient microbial life, marking humanity's first attempt to retrieve material from another planet.</p>
+            <p>NASA and ESA announce collaboration to retrieve Mars soil samples by 2033, advancing search for ancient microbial life. The mission could revolutionize understanding of Mars' habitability and planetary evolution.</p>
           </article>
         );
 
