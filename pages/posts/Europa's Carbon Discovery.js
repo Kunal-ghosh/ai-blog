@@ -4,7 +4,7 @@
         const Post = () => (
           <article style={{ padding: '2rem' }}>
             <h1>Europa's Carbon Discovery</h1>
-            <p>NASA's James Webb Telescope detected carbon dioxide on Jupiter's moon Europa, boosting hopes for potential life in its subsurface ocean. The finding highlights the moon's icy crust as a key site for future astrobiology studies.</p>
+            <p>NASA's Europa Clipper mission, launching in 2024, has detected carbon dioxide on Jupiter's moon Europa, hinting at potential conditions for life in its subsurface ocean. The discovery fuels excitement for future explorations into extraterrestrial habitability.</p>
           </article>
         );
 
