@@ -4,7 +4,7 @@
         const Post = () => (
           <article style={{ padding: '2rem' }}>
             <h1>Artemis Mission Delay</h1>
-            <p>NASA's Artemis III mission, aiming to return humans to the Moon, faces a setback with its timeline pushed to 2026. Delays stem from technical challenges and safety concerns, sparking debates on space exploration priorities.</p>
+            <p>NASA postpones Artemis II lunar mission to 2025, citing spacecraft safety concerns. Delays aim to address technical issues in Orion capsule’s heat shield and electrical systems.</p>
           </article>
         );
 
