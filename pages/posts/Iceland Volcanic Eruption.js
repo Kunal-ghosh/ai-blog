@@ -4,7 +4,7 @@
         const Post = () => (
           <article style={{ padding: '2rem' }}>
             <h1>Iceland Volcanic Eruption</h1>
-            <p>A recent volcanic eruption on Iceland's Reykjanes Peninsula forced evacuations and disrupted air travel, with lava flows threatening nearby towns. Scientists warn of prolonged seismic activity as global climate impacts are assessed.</p>
+            <p>A new eruption at Iceland’s Svartsengi volcano near Grindavík in May 2024 spewed lava flows, forcing evacuations and damaging infrastructure. Geologists warn of prolonged volcanic activity, disrupting local communities and air travel.</p>
           </article>
         );
 
