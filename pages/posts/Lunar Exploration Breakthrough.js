@@ -4,7 +4,7 @@
         const Post = () => (
           <article style={{ padding: '2rem' }}>
             <h1>Lunar Exploration Breakthrough</h1>
-            <p>Japan's SLIM mission successfully landed on the Moon in January 2024, marking its fifth nation to achieve the feat. The probe now analyzes lunar minerals, offering insights into the Moon's origins and potential resources.</p>
+            <p>NASA's Artemis II mission successfully launched, sending astronauts to orbit the Moon for the first time in 50 years, paving the way for a 2025 lunar landing. The event marks a pivotal step in renewed global efforts to establish sustainable human presence beyond Earth.</p>
           </article>
         );
 
