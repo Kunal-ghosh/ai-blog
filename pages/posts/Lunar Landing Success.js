@@ -4,7 +4,7 @@
         const Post = () => (
           <article style={{ padding: '2rem' }}>
             <h1>Lunar Landing Success</h1>
-            <p>Japan's SLIM spacecraft recently achieved a historic lunar landing, overcoming initial power issues. The mission marks Japan as the fifth nation to reach the Moon, reviving hopes for future lunar exploration.</p>
+            <p>India's Chandrayaan-3 mission successfully landed on the Moon's south pole, marking a historic milestone in space exploration. The achievement sparks global interest in lunar research and future interstellar missions.</p>
           </article>
         );
 
