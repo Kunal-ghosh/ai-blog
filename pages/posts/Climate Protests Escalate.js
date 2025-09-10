@@ -4,7 +4,7 @@
         const Post = () => (
           <article style={{ padding: '2rem' }}>
             <h1>Climate Protests Escalate</h1>
-            <p>Activists disrupted private jet operations at London airports, demanding faster fossil fuel phase-outs. Protests spread globally, sparking debates on climate urgency vs. economic disruption.</p>
+            <p>Recent climate activism in Paris disrupted 2024 Olympics preparations, as protesters demanded stricter emissions targets. Athletes and organizers face challenges balancing event logistics with environmental concerns.</p>
           </article>
         );
 
