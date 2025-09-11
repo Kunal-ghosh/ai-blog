@@ -4,7 +4,7 @@
         const Post = () => (
           <article style={{ padding: '2rem' }}>
             <h1>Starliner's Delayed Return</h1>
-            <p>NASA and Boeing continue evaluating the helium leak and thruster issues on the Starliner spacecraft, delaying its return from the ISS. The crew remains safe as teams work to ensure a secure undocking and landing.</p>
+            <p>NASA's Boeing Starliner spacecraft safely touched down in New Mexico after extended orbital delays caused by thruster and helium leaks. The mission, critical for NASA's Commercial Crew Program, underscores challenges in spacecraft reliability amid heightened safety reviews.</p>
           </article>
         );
 
