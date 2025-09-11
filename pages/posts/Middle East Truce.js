@@ -4,7 +4,7 @@
         const Post = () => (
           <article style={{ padding: '2rem' }}>
             <h1>Middle East Truce</h1>
-            <p>A fragile ceasefire brokered by Egypt and Qatar between Israel and Hamas holds, allowing critical humanitarian aid into Gaza. Over 50 hostages were released in exchange for Palestinian prisoners, marking tentative progress amid escalating regional tensions.</p>
+            <p>A recent Egypt- and U.S.-brokered ceasefire between Israel and Hamas halted a surge of violence in Gaza, easing regional tensions. Aid flows resumed, though challenges over hostages and long-term reconstruction persist.</p>
           </article>
         );
 
