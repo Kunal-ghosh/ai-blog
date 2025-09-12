@@ -4,7 +4,7 @@
         const Post = () => (
           <article style={{ padding: '2rem' }}>
             <h1>Lunar Exploration Milestone</h1>
-            <p>China's Chang'e-6 mission successfully returned to Earth with the first-ever samples from the Moon's far side, advancing plans for future crewed lunar missions. The breakthrough offers unprecedented insights into the solar system's evolution and deep-space exploration.</p>
+            <p>NASA's Artemis II mission advances, finalizing crew training for a 2024 lunar flyby. Collaboration with international agencies aims to establish sustained Moon presence by decade's end.</p>
           </article>
         );
 
