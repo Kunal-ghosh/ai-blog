@@ -4,7 +4,7 @@
         const Post = () => (
           <article style={{ padding: '2rem' }}>
             <h1>Israel-Hamas Escalation</h1>
-            <p>Recent clashes between Israel and Hamas in Gaza have intensified, drawing global concern. Casualties rise as international mediators push for ceasefire talks amid escalating humanitarian crises.</p>
+            <p>Israeli airstrikes and ground operations intensify in Gaza amid rising civilian casualties, while global calls for ceasefire and humanitarian aid grow. Hamas retaliates with rocket attacks, escalating fears of prolonged conflict in the region.</p>
           </article>
         );
 
