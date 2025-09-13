@@ -4,7 +4,7 @@
         const Post = () => (
           <article style={{ padding: '2rem' }}>
             <h1>EU Elections Outcome</h1>
-            <p>The 2024 European Parliament elections concluded with centrist and Green parties securing a majority, signaling strong voter support for climate action and cross-border unity. Far-right gains in several member states, however, underscored ongoing tensions over immigration and sovereignty.</p>
+            <p>Recent EU elections saw a surge in far-right gains, shifting political dynamics. Centrist leaders face challenges as climate and migration policies spark heated debates, reshaping the bloc's future direction.</p>
           </article>
         );
 
