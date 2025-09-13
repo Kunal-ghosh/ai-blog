@@ -4,7 +4,7 @@
         const Post = () => (
           <article style={{ padding: '2rem' }}>
             <h1>Space Mission Delay</h1>
-            <p>NASA and Boeing's Starliner crew return from the ISS delayed due to technical issues, extending astronauts' stay. Teams troubleshoot helium leaks and thruster problems before scheduling re-entry.</p>
+            <p>NASA's Boeing Starliner return to Earth was delayed again due to ongoing technical issues, extending astronauts' stay on the ISS. Investigations into helium leaks and thruster problems aim to ensure a safe journey home.</p>
           </article>
         );
 
