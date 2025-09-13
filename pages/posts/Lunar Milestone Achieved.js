@@ -4,7 +4,7 @@
         const Post = () => (
           <article style={{ padding: '2rem' }}>
             <h1>Lunar Milestone Achieved</h1>
-            <p>India's Chandrayaan-3 successfully landed near the Moon's south pole, making India the fourth nation to achieve a soft lunar landing. The rover Pragyan has begun exploring the region, conducting experiments to study lunar soil and water ice presence.</p>
+            <p>India's Chandrayaan-3 successfully landed on the Moon, marking its first exploration of the lunar south pole. The mission advances global efforts to study water ice and potential resources in space.</p>
           </article>
         );
 
