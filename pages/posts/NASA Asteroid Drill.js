@@ -4,7 +4,7 @@
         const Post = () => (
           <article style={{ padding: '2rem' }}>
             <h1>NASA Asteroid Drill</h1>
-            <p>NASA conducted a global simulation exercise with international space agencies to prepare for a hypothetical asteroid impact scenario. The drill assessed response strategies, aiming to enhance planetary defense coordination against potential near-Earth object threats.</p>
+            <p>NASA and global partners recently conducted a planetary defense drill, simulating response tactics for a hypothetical asteroid impact threat. The exercise aimed to enhance readiness for potential near-Earth object risks.</p>
           </article>
         );
 
