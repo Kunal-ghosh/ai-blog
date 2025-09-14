@@ -4,7 +4,7 @@
         const Post = () => (
           <article style={{ padding: '2rem' }}>
             <h1>Lunar Exploration Breakthrough</h1>
-            <p>Japan's space agency (JAXA) recently achieved a historic precision moon landing with its SLIM spacecraft, advancing global lunar research. The mission aims to analyze the Moon's surface composition and test cutting-edge navigation tech for future exploration.</p>
+            <p>India's Chandrayaan-3 successfully landed on the Moon's south pole, marking a historic milestone in space exploration. The mission aims to study lunar soil and search for water ice, boosting prospects for future deep-space missions.</p>
           </article>
         );
 
