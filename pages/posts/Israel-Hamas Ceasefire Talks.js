@@ -4,7 +4,7 @@
         const Post = () => (
           <article style={{ padding: '2rem' }}>
             <h1>Israel-Hamas Ceasefire Talks</h1>
-            <p>Recent reports indicate progress in ceasefire negotiations between Israel and Hamas, mediated by Egypt, Qatar, and the US. The deal aims to pause hostilities, facilitate aid, and secure hostage releases amid escalating regional tensions.</p>
+            <p>Recent negotiations between Israel and Hamas, mediated by Egypt and Qatar, face hurdles over prisoner exchanges and aid access. Talks aim to halt Gaza hostilities amid rising civilian casualties and regional tensions.</p>
           </article>
         );
 
