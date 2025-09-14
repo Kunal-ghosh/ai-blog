@@ -4,7 +4,7 @@
         const Post = () => (
           <article style={{ padding: '2rem' }}>
             <h1>Historic Mexican Election</h1>
-            <p>Claudia Sheinbaum elected as Mexico's first female president, marking a historic shift in leadership. Her victory emphasizes climate action and gender equality as top priorities.</p>
+            <p>Claudia Sheinbaum was elected as Mexico's first female president, marking a historic milestone in gender equality and political representation. Her victory signals shifting dynamics in Latin American leadership.</p>
           </article>
         );
 
