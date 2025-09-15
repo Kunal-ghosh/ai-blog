@@ -4,7 +4,7 @@
         const Post = () => (
           <article style={{ padding: '2rem' }}>
             <h1>untitled</h1>
-            <p>untitled</p>
+            <p></p>
           </article>
         );
 
