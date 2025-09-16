@@ -4,7 +4,7 @@
         const Post = () => (
           <article style={{ padding: '2rem' }}>
             <h1>Middle East Tensions</h1>
-            <p>Recent escalations in the Israel-Hamas conflict draw global concern as ceasefire talks stall. Protests and diplomatic efforts intensify amid rising civilian casualties.</p>
+            <p>Ceasefire talks between Israel and Hamas resume amid escalating violence, mediated by Egypt and Qatar. Humanitarian crises deepen in Gaza as international pressure mounts for a resolution.</p>
           </article>
         );
 
