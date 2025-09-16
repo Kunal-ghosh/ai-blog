@@ -4,7 +4,7 @@
         const Post = () => (
           <article style={{ padding: '2rem' }}>
             <h1>Middle East Ceasefire</h1>
-            <p>Mediators push for Israel-Hamas truce as Cairo talks intensify; casualties rise amid stalled negotiations. Global leaders urge immediate de-escalation to avert humanitarian crisis.</p>
+            <p>Egypt and Qatar brokered a fragile Israel-Gaza ceasefire on May 6, 2024, halting weeks of deadly clashes. The truce aims to facilitate humanitarian aid and renewed diplomatic talks amid global calls for lasting peace.</p>
           </article>
         );
 
