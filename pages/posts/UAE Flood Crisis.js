@@ -4,7 +4,7 @@
         const Post = () => (
           <article style={{ padding: '2rem' }}>
             <h1>UAE Flood Crisis</h1>
-            <p>Record-breaking rainfall triggers flash floods in UAE, submerging major highways and disrupting Dubai Airport. Authorities deploy emergency response teams as climate experts cite unprecedented weather patterns.</p>
+            <p>Historic rainfall floods Dubai, submerging highways and halting flights. Authorities scramble to restore infrastructure amid climate change concerns.</p>
           </article>
         );
 
