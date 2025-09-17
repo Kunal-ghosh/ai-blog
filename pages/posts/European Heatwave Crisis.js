@@ -4,7 +4,7 @@
         const Post = () => (
           <article style={{ padding: '2rem' }}>
             <h1>European Heatwave Crisis</h1>
-            <p>A severe heatwave sweeps across Southern Europe, with temperatures surpassing 45°C (113°F), triggering wildfires and health alerts in Spain, Italy, and Greece. Authorities urge citizens to stay indoors as record-breaking heat strains energy grids and sparks emergency response measures.</p>
+            <p>In June 2023, record-breaking temperatures scorched southern Europe, with wildfires ravaging Greece and Spain as thermometers hit 45°C (113°F). Authorities evacuated thousands amid urgent climate change warnings and strained emergency responses.</p>
           </article>
         );
 
