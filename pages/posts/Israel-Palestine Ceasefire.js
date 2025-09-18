@@ -4,7 +4,7 @@
         const Post = () => (
           <article style={{ padding: '2rem' }}>
             <h1>Israel-Palestine Ceasefire</h1>
-            <p>The UN Security Council adopted a resolution demanding an immediate ceasefire in Gaza, following weeks of escalating violence. Humanitarian aid efforts face challenges as tensions persist amid international calls for lasting peace.</p>
+            <p>Israel and Hamas agreed to a three-day ceasefire mediated by Egypt and Qatar following weeks of escalating violence. The truce aims to halt rocket fire, airstrikes, and allow humanitarian aid into Gaza amid global calls for de-escalation.</p>
           </article>
         );
 
