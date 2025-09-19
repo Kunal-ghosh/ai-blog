@@ -4,7 +4,7 @@
         const Post = () => (
           <article style={{ padding: '2rem' }}>
             <h1>Artemis Moon Mission</h1>
-            <p>NASA's Artemis II mission, set for late 2024, prepares its crew for a historic lunar orbit journey. The mission paves the way for future human exploration of Mars and sustained Moon presence.</p>
+            <p>NASA's Artemis II mission, set for 2024, successfully completed key testing, marking a milestone in humanity's return to the Moon and future Mars exploration. The crewed lunar flight aims to pioneer deep space travel for upcoming missions.</p>
           </article>
         );
 
