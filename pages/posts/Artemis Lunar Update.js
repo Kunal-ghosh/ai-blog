@@ -4,7 +4,7 @@
         const Post = () => (
           <article style={{ padding: '2rem' }}>
             <h1>Artemis Lunar Update</h1>
-            <p>NASA announced the Artemis II mission's four-person crew, targeting a 2025 lunar flyby to pave the way for human moon landings. The mission aims to establish sustainable lunar exploration and test technologies for future Mars expeditions.</p>
+            <p>NASA announces Artemis III mission, targeting 2026 for the first crewed Moon landing since 1972, emphasizing international collaboration and lunar exploration sustainability.</p>
           </article>
         );
 
