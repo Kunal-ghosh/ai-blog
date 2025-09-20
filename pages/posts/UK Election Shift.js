@@ -4,7 +4,7 @@
         const Post = () => (
           <article style={{ padding: '2rem' }}>
             <h1>UK Election Shift</h1>
-            <p>Labour Party secures landslide victory in UK general election, ending 14 years of Conservative rule. New PM Keir Starmer pledges focus on economic reform and climate action amid global watch.</p>
+            <p>Labour Party wins UK general election, ending 14-year Conservative rule. Keir Starmer to become PM, pledging economic reforms and public service revitalization.</p>
           </article>
         );
 
