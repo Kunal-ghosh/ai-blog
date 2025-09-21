@@ -4,7 +4,7 @@
         const Post = () => (
           <article style={{ padding: '2rem' }}>
             <h1>Global Climate Agreement</h1>
-            <p>Over 200 countries recently finalized a landmark climate pact, pledging accelerated emissions cuts by 2030. The deal includes renewable energy expansion and increased funding for vulnerable nations facing climate disasters.</p>
+            <p>World leaders at COP28 reached a unanimous deal to triple renewable energy by 2030, signaling a historic shift toward phasing out fossil fuels. The agreement includes stricter emissions targets and funding pledges for developing nations.</p>
           </article>
         );
 
