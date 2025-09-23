@@ -4,7 +4,7 @@
         const Post = () => (
           <article style={{ padding: '2rem' }}>
             <h1>Japan Moon Landing</h1>
-            <p>Japan's SLIM spacecraft made a historic precision landing on the Moon in January 2024, becoming the fifth nation to achieve this feat. The mission aims to advance lunar exploration and test cutting-edge pinpoint landing technology for future missions.</p>
+            <p>Japan's SLIM spacecraft successfully landed on the Moon, making it the fifth nation to achieve the feat. However, a solar panel malfunction threatens mission longevity as engineers race to restore power.</p>
           </article>
         );
 
