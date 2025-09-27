@@ -4,7 +4,7 @@
         const Post = () => (
           <article style={{ padding: '2rem' }}>
             <h1>Euro 2024 Kickoff</h1>
-            <p>Germany triumphed 5-1 over Scotland in the UEFA Euro 2024 opener, electrifying Munich’s Allianz Arena. Fans worldwide tune in as the month-long football spectacle unites nations.</p>
+            <p>Germany hosts the UEFA Euro 2024, with thrilling opening matches drawing global fans. Climate-neutral initiatives and record crowds highlight the tournament's sustainability and football fervor.</p>
           </article>
         );
 
