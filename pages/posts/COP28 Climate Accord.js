@@ -4,7 +4,7 @@
         const Post = () => (
           <article style={{ padding: '2rem' }}>
             <h1>COP28 Climate Accord</h1>
-            <p>World leaders at COP28 in Dubai committed to accelerating fossil fuel phase-out and boosting climate financing, aiming to limit global warming. New agreements include $700 billion pledges for renewable energy and addressing developing nations' vulnerabilities.</p>
+            <p>World leaders at COP28 reached a historic agreement to phase out fossil fuels, aiming for net-zero emissions by 2050. The deal emphasizes urgent renewable energy expansion and funding for vulnerable nations.</p>
           </article>
         );
 
