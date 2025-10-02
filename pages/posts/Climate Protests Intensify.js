@@ -4,7 +4,7 @@
         const Post = () => (
           <article style={{ padding: '2rem' }}>
             <h1>Climate Protests Intensify</h1>
-            <p>Activists from the group Just Stop Oil vandalized Stonehenge with orange powder, demanding urgent climate action. The incident sparks global debate over protest methods and environmental priorities.</p>
+            <p>Millions worldwide rallied in coordinated climate strikes this week, demanding urgent action from governments. Youth-led movements highlighted record heatwaves and fossil fuel subsidies, pressuring leaders ahead of UN COP29 talks.</p>
           </article>
         );
 
