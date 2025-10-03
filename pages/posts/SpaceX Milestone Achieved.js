@@ -4,7 +4,7 @@
         const Post = () => (
           <article style={{ padding: '2rem' }}>
             <h1>SpaceX Milestone Achieved</h1>
-            <p>🚀 SpaceX successfully launched and landed its Starship rocket during its fourth test flight on June 6, 2024, marking a leap toward Mars missions. The uncrewed mission demonstrated in-orbit refueling and splashed down in the Indian Ocean, advancing reusable spaceflight goals.</p>
+            <p>SpaceX's Starship completed its fourth test flight, achieving a successful soft ocean landing. The mission marks progress toward reusable spacecraft for future Moon and Mars missions.</p>
           </article>
         );
 
