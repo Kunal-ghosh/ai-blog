@@ -4,7 +4,7 @@
         const Post = () => (
           <article style={{ padding: '2rem' }}>
             <h1>COP28 Agreement</h1>
-            <p>Global leaders at COP28 pledged to triple renewable energy by 2030, while facing criticism over weak fossil fuel phase-out commitments. The summit highlighted stark divisions on climate financing for developing nations.</p>
+            <p>Global leaders at COP28 pledged to accelerate fossil fuel phase-out, marking a historic climate commitment. Critics highlight gaps in funding and adaptation support for vulnerable nations.</p>
           </article>
         );
 
