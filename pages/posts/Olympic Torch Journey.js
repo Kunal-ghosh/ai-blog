@@ -4,7 +4,7 @@
         const Post = () => (
           <article style={{ padding: '2rem' }}>
             <h1>Olympic Torch Journey</h1>
-            <p>The Olympic flame arrived in Paris after a 12,000 km relay through French territories, ahead of the 2024 Summer Games. Final preparations intensify as athletes worldwide gear up for the July 26 Opening Ceremony.</p>
+            <p>The Paris 2024 Olympic torch began its global relay in Marseille, France, with athletes and cultural landmarks celebrating unity. The flame will tour 65 territories, emphasizing sustainability through a hydrogen-powered leg.</p>
           </article>
         );
 
