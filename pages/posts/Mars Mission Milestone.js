@@ -4,7 +4,7 @@
         const Post = () => (
           <article style={{ padding: '2rem' }}>
             <h1>Mars Mission Milestone</h1>
-            <p>NASA's Ingenuity helicopter concludes its 3-year Mars mission, paving the way for future aerial exploration. The rotorcraft exceeded expectations, completing 72 flights and proving powered flight on another planet.</p>
+            <p>NASA's Ingenuity helicopter, after 72 flights, concludes its groundbreaking Mars mission, paving the way for future aerial exploration of the Red Planet.</p>
           </article>
         );
 
