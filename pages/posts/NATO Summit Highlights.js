@@ -4,7 +4,7 @@
         const Post = () => (
           <article style={{ padding: '2rem' }}>
             <h1>NATO Summit Highlights</h1>
-            <p>Leaders convened at NATO's 75th anniversary summit in Washington D.C., pledging increased military aid to Ukraine amid rising tensions with Russia. New defense plans and membership assurances for Kyiv dominated discussions.</p>
+            <p>NATO leaders concluded a 2023 summit, pledging increased defense spending and Ukraine support. Plans for expanded military aid and accelerated membership talks for Kyiv drew global attention.</p>
           </article>
         );
 
