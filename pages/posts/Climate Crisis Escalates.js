@@ -4,7 +4,7 @@
         const Post = () => (
           <article style={{ padding: '2rem' }}>
             <h1>Climate Crisis Escalates</h1>
-            <p>July 2023 marked the hottest month on record globally, with extreme heatwaves and wildfires ravaging Europe, Asia, and North America. Scientists urge urgent climate action as communities face health emergencies and mass evacuations.</p>
+            <p>Europe faces record-breaking heatwaves, with Sicily, Italy, hitting 48.8°C—potentially the continent’s highest-ever temperature. Scientists link the surge to climate change, urging action amid wildfires and health warnings.</p>
           </article>
         );
 
