@@ -4,7 +4,7 @@
         const Post = () => (
           <article style={{ padding: '2rem' }}>
             <h1>Ukraine Peace Talks</h1>
-            <p>World leaders convened emergency talks in Istanbul, urging de-escalation amid renewed conflict in Ukraine. Diplomatic efforts focus on ceasefire agreements and humanitarian aid delivery.</p>
+            <p>Recent negotiations between Ukraine and Russia in Turkey mark a critical step toward ceasefire discussions. Despite progress, challenges remain over territorial disputes and international sanctions.</p>
           </article>
         );
 
