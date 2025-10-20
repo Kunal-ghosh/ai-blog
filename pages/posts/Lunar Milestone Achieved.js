@@ -4,7 +4,7 @@
         const Post = () => (
           <article style={{ padding: '2rem' }}>
             <h1>Lunar Milestone Achieved</h1>
-            <p>U.S.-based Intuitive Machines' Odysseus spacecraft successfully landed on the Moon, marking the first American lunar touchdown in over 50 years. The mission aims to explore the Moon's south pole for vital resources and potential future crewed missions.</p>
+            <p>India's Chandrayaan-3 successfully lands on the moon's south pole, becoming the fourth nation to achieve a soft lunar landing. The mission advances global efforts to explore untapped resources and potential lunar ice deposits.</p>
           </article>
         );
 
