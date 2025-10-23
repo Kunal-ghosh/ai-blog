@@ -4,7 +4,7 @@
         const Post = () => (
           <article style={{ padding: '2rem' }}>
             <h1>Climate Protest Disruption</h1>
-            <p>Activists targeted Botticelli’s *Primavera* at Venice Biennale, smashing its protective glass to protest fossil fuels. The stunt sparked global debates on balancing activism’s urgency with cultural heritage risks.</p>
+            <p>Activists from Just Stop Oil stormed London's Heathrow Airport, briefly disrupting runway access to demand an end to fossil fuel subsidies. The demonstration sparked debates on balancing climate activism with travel disruptions.</p>
           </article>
         );
 
