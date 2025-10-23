@@ -4,7 +4,7 @@
         const Post = () => (
           <article style={{ padding: '2rem' }}>
             <h1>Gaza Ceasefire Progress</h1>
-            <p>A fragile ceasefire between Israel and Gaza militants, mediated by Egypt and the UN, holds amid efforts to deliver humanitarian aid. Tensions persist as both sides demand long-term solutions to recurrent violence.</p>
+            <p>Egypt mediates renewed Israel-Hamas truce talks, aiming to halt conflict and secure aid for Gaza amid rising civilian casualties. International pressure mounts as humanitarian groups warn of worsening crisis.</p>
           </article>
         );
 
