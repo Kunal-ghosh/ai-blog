@@ -4,7 +4,7 @@
         const Post = () => (
           <article style={{ padding: '2rem' }}>
             <h1>European Heatwave Crisis</h1>
-            <p>Record-breaking temperatures scorch Europe, triggering wildfires in Greece and displacing thousands. Scientists link the intensified heatwaves to climate change, urging global action to curb emissions.</p>
+            <p>Severe heatwaves across Europe have prompted emergency health alerts and wildfires in Spain and Greece. Record temperatures surpass 45°C, straining infrastructure and raising climate change concerns among experts.</p>
           </article>
         );
 
