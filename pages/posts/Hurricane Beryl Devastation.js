@@ -4,7 +4,7 @@
         const Post = () => (
           <article style={{ padding: '2rem' }}>
             <h1>Hurricane Beryl Devastation</h1>
-            <p>Hurricane Beryl, a Category 4 storm, struck the Caribbean this week, causing severe flooding, power outages, and widespread damage. The intensified cyclone has reignited debates on climate change's role in extreme weather patterns.</p>
+            <p>Hurricane Beryl, the earliest Category 5 storm in Atlantic history, caused widespread destruction across the Caribbean, displacing thousands. Scientists link its rapid intensification to climate-driven ocean warming, urging global action.</p>
           </article>
         );
 
