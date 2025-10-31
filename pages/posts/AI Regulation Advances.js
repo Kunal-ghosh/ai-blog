@@ -4,7 +4,7 @@
         const Post = () => (
           <article style={{ padding: '2rem' }}>
             <h1>AI Regulation Advances</h1>
-            <p>European Union finalizes groundbreaking AI Act, setting global standards for ethical use and risk assessment. The law bans high-risk applications, mandates transparency, and takes full effect in 2025.</p>
+            <p>The EU passed the world's first comprehensive AI Act, setting strict rules for high-risk systems and banning unethical uses. This landmark law aims to balance innovation with fundamental rights protection.</p>
           </article>
         );
 
