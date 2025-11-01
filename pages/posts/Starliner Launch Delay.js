@@ -4,7 +4,7 @@
         const Post = () => (
           <article style={{ padding: '2rem' }}>
             <h1>Starliner Launch Delay</h1>
-            <p>NASA and Boeing postponed the Starliner's first crewed flight minutes before liftoff due to a computer glitch. The delay highlights ongoing challenges in achieving reliable crewed space missions.</p>
+            <p>NASA and Boeing postpone Starliner's first crewed mission due to a helium leak, delaying its docking with the ISS. The setback highlights challenges in spacecraft testing amid renewed global focus on space exploration.</p>
           </article>
         );
 
