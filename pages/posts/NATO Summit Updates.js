@@ -4,7 +4,7 @@
         const Post = () => (
           <article style={{ padding: '2rem' }}>
             <h1>NATO Summit Updates</h1>
-            <p>World leaders at the 2024 NATO Summit emphasized bolstering collective defense amid rising tensions, pledging increased military spending and aid to Ukraine. New strategies to counter Russia’s aggression and Sweden’s formal induction marked key highlights.</p>
+            <p>Leaders convened at the 2023 NATO Summit, reaffirming support for Ukraine and boosting defense spending targets. Climate security and emerging tech threats dominated sideline discussions.</p>
           </article>
         );
 
