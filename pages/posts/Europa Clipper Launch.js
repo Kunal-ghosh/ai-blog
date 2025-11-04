@@ -4,7 +4,7 @@
         const Post = () => (
           <article style={{ padding: '2rem' }}>
             <h1>Europa Clipper Launch</h1>
-            <p>NASA's Europa Clipper mission launched aboard SpaceX's Falcon Heavy, aiming to study Jupiter's moon Europa for signs of habitability. The spacecraft successfully deployed its solar arrays, marking a critical step in its journey to explore the icy world's subsurface ocean by 2030.</p>
+            <p>NASA's Europa Clipper mission, targeting an October 2024 launch, will explore Jupiter's moon Europa for signs of habitable conditions. The spacecraft will study its icy shell and subsurface ocean, advancing the search for extraterrestrial life.</p>
           </article>
         );
 
