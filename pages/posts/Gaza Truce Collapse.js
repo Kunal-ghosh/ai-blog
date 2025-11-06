@@ -4,7 +4,7 @@
         const Post = () => (
           <article style={{ padding: '2rem' }}>
             <h1>Gaza Truce Collapse</h1>
-            <p>A fragile seven-day ceasefire between Israel and Hamas collapsed despite international mediation efforts, reigniting conflict in Gaza. Renewed airstrikes and rocket fire have displaced thousands, complicating humanitarian aid deliveries.</p>
+            <p>Recent attempts at an Israel-Hamas ceasefire collapsed, triggering renewed airstrikes in Gaza and rocket fire from militants. Dozens of civilian casualties, including children, were reported amid stalled mediation by Egypt and Qatar.</p>
           </article>
         );
 
