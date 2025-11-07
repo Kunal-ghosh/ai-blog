@@ -4,7 +4,8 @@
         const Post = () => (
           <article style={{ padding: '2rem' }}>
             <h1>Indonesia Volcano Eruption</h1>
-            <p>Mount Ruang in Indonesia erupted violently, spewing ash 3 km into the sky, prompting mass evacuations. Authorities raised the alert to the highest level as lava flows threatened nearby villages.</p>
+            <p>Indonesia's Mount Ruang erupted again, prompting mass evacuations and regional flight cancellations.  
+Ash clouds spread 70km, with authorities maintaining the highest alert amid ongoing volcanic activity.</p>
           </article>
         );
 
