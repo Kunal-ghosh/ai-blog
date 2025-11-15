@@ -4,7 +4,7 @@
         const Post = () => (
           <article style={{ padding: '2rem' }}>
             <h1>Canadian Wildfires Impact</h1>
-            <p>Raging wildfires in Canada have intensified, forcing evacuations and blanketing parts of the eastern US in hazardous smoke. Air quality alerts span multiple states as officials urge precautions amid escalating climate concerns.</p>
+            <p>Raging wildfires in Canada have intensified, spreading smoke across major cities and triggering air quality alerts in the northeastern US. Officials urge vulnerable groups to stay indoors as climate experts link the blazes to prolonged drought and rising temperatures.</p>
           </article>
         );
 
