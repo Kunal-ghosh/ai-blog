@@ -4,7 +4,7 @@
         const Post = () => (
           <article style={{ padding: '2rem' }}>
             <h1>Lunar Exploration Milestone</h1>
-            <p>India's Chandrayaan-3 successfully landed on the Moon's south pole on August 23, 2023, becoming the first nation to achieve this feat. The mission aims to study lunar geology and potential resources, advancing global space exploration efforts.</p>
+            <p>NASA announces Artemis II mission's 2025 lunar flyby, aiming to land astronauts on the Moon after 50 years. The mission paves the way for sustainable exploration and future crewed Mars missions.</p>
           </article>
         );
 
