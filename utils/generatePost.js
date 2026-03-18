@@ -12,108 +12,164 @@ dotenv.config();
 const postsDir = path.join(process.cwd(), "pages/posts");
 if (!fs.existsSync(postsDir)) fs.mkdirSync(postsDir, { recursive: true });
 
+const OPENROUTER_URL = "https://openrouter.ai/api/v1/chat/completions";
+const GEMINI_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent";
+
+function sleep(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+function extractBetweenTags(content, tagName) {
+  const pattern = new RegExp(`/${tagName}([\\s\\S]*?)/${tagName}`, "i");
+  const match = content.match(pattern);
+  return match ? match[1].trim() : "";
+}
+
+function buildUniqueSlug(baseTitle) {
+  const fallbackTitle = baseTitle || `ai-post-${Date.now()}`;
+  const slugBase = slugify(fallbackTitle, { lower: true, strict: true }) || `ai-post-${Date.now()}`;
+  let slug = slugBase;
+  let counter = 1;
+
+  while (fs.existsSync(path.join(postsDir, `${slug}.js`))) {
+    slug = `${slugBase}-${counter}`;
+    counter += 1;
+  }
+
+  return slug;
+}
+
+async function requestOpenRouterContent(apiKey, prompt, model) {
+  const response = await axios.post(
+    OPENROUTER_URL,
+    {
+      model,
+      messages: [
+        {
+          role: "user",
+          content: prompt,
+        },
+      ],
+    },
+    {
+      headers: {
+        Authorization: `Bearer ${apiKey}`,
+        "Content-Type": "application/json",
+      },
+    },
+  );
+
+  return response.data?.choices?.[0]?.message?.content?.trim() || "";
+}
+
+async function requestGeminiContent(apiKey, prompt) {
+  const response = await axios.post(
+    `${GEMINI_URL}?key=${apiKey}`,
+    {
+      contents: [
+        {
+          parts: [{ text: prompt }],
+        },
+      ],
+    },
+    {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    },
+  );
+
+  return response.data?.candidates?.[0]?.content?.parts?.[0]?.text?.trim() || "";
+}
+
 async function generatePost() {
-  const now = new Date();
-  const dateStr = now.toLocaleDateString("en-GB").replace(/\//g, "-");
-  const timeStr = now.toTimeString().split(" ")[0].replace(/:/g, "-");
-
-  //   let title = `AI Post ${dateStr} ${timeStr}`;
-  //   const slug = slugify(title, { lower: true, strict: true });
-  //   const filename = path.join(postsDir, `${slug}.js`);
-
-  const prompt = `give the response in this format , keep the subject in /s and post in /p tags and the subject should be between 2 to 3 words
+  const prompt = `Give the response in exactly this format. Keep the subject in /s tags and the post in /p tags. The subject should be between 2 and 5 words.
 subject : /s topic of the post/s
 post : /p text /p
 
-                Write a 2 lines on a latest event in the world. and give a topic name for the post
+Write 2 concise lines on a recent real world event and give a topic name for the post. Do not include markdown, explanations, or any extra text outside the required tags.
 `;
 
-  // Support both DEEPSEEK_API_KEY and OPENROUTER_API_KEY for compatibility
-  const apiKey = process.env.DEEPSEEK_API_KEY || process.env.OPENROUTER_API_KEY;
-  if (!apiKey)
-    throw new Error(
-      "Missing DEEPSEEK_API_KEY or OPENROUTER_API_KEY in environment variables.",
-    );
+  const openRouterApiKey =
+    process.env.DEEPSEEK_API_KEY || process.env.OPENROUTER_API_KEY;
+  const geminiApiKey = process.env.GEMINI_API_KEY;
+  const openRouterModel = process.env.OPENROUTER_MODEL || "qwen/qwen3-4b:free";
 
+  if (!openRouterApiKey && !geminiApiKey) {
+    throw new Error(
+      "Missing API key. Set DEEPSEEK_API_KEY, OPENROUTER_API_KEY, or GEMINI_API_KEY.",
+    );
+  }
+
+  let generatedContent = "";
   let lastError = null;
+
   for (let attempt = 1; attempt <= 3; attempt++) {
     try {
-      const response = await axios.post(
-        "https://openrouter.ai/api/v1/chat/completions",
-        {
-          model: "qwen/qwen3-4b:free",
-          // model: "openai/gpt-4o",
-          messages: [
-            {
-              role: "user",
-              content: prompt,
-            },
-          ],
-        },
-        {
-          headers: {
-            Authorization: `Bearer ${apiKey}`,
-            "Content-Type": "application/json",
-          },
-        },
-      );
-      let content =
-        response.data?.choices?.[0]?.message?.content?.trim() ||
-        "No content generated.";
+      if (openRouterApiKey) {
+        generatedContent = await requestOpenRouterContent(
+          openRouterApiKey,
+          prompt,
+          openRouterModel,
+        );
+        console.log(`Using OpenRouter model: ${openRouterModel}`);
+      } else {
+        generatedContent = await requestGeminiContent(geminiApiKey, prompt);
+        console.log("Using Gemini fallback provider.");
+      }
 
-      const start = content.indexOf("/s") + 2;
-      const end = content.indexOf("/s", start);
-      const filename1 =
-        start > 1 && end > start
-          ? content.substring(start, end).trim()
-          : "untitled";
+      if (!generatedContent) {
+        throw new Error("Model returned empty content.");
+      }
 
-      let title = filename1;
-      const slug = slugify(title, { lower: true, strict: true });
-      const filename = path.join(postsDir, `${slug}.js`);
-
-      const startcontent = content.indexOf("/p") + 2;
-      const endcontent = content.indexOf("/p", startcontent);
-      let content1 =
-        startcontent > 1 && endcontent > startcontent
-          ? content.substring(startcontent, endcontent).trim()
-          : "untitled";
-      content = content1;
-      console.log("content1", content1);
-      console.log("content", content);
-
-      const postContent = `
-            import React from 'react';
-
-            const Post = () => (
-              <article style={{ padding: '2rem' }}>
-                <h1>${title}</h1>
-                <p>${content}</p>
-              </article>
-            );
-
-            export default Post;
-            `;
-
-      const filename2 = path.join(postsDir, `${filename1}.js`);
-      fs.writeFileSync(filename2, postContent);
-      console.log("filename1", filename1);
-      console.log(`✅ Post generated: ${filename2}`);
-      return;
+      break;
     } catch (err) {
       lastError = err;
+      const status = err.response?.status;
+
+      if (status === 429 && geminiApiKey) {
+        console.warn(
+          `OpenRouter attempt ${attempt} was rate-limited. Falling back to Gemini.`,
+        );
+        generatedContent = await requestGeminiContent(geminiApiKey, prompt);
+        break;
+      }
+
       console.error(`❌ Attempt ${attempt} failed:`, err.message);
       if (attempt < 3) {
-        // Wait 2 seconds before retrying
-        await new Promise((res) => setTimeout(res, 2000));
+        await sleep(attempt * 5000);
       }
     }
   }
-  // If all attempts failed
-  console.error(
-    "❌ Error generating post after 3 attempts:",
-    lastError?.message,
-  );
+
+  if (!generatedContent) {
+    throw new Error(
+      `Error generating post after 3 attempts: ${lastError?.message || "Unknown error"}`,
+    );
+  }
+
+  const title = extractBetweenTags(generatedContent, "s") || "Untitled";
+  const content = extractBetweenTags(generatedContent, "p") || generatedContent;
+  const slug = buildUniqueSlug(title);
+  const outputPath = path.join(postsDir, `${slug}.js`);
+
+  const postContent = `import React from "react";
+
+const Post = () => (
+  <article style={{ padding: "2rem" }}>
+    <h1>{${JSON.stringify(title)}}</h1>
+    <p>{${JSON.stringify(content)}}</p>
+  </article>
+);
+
+export default Post;
+`;
+
+  fs.writeFileSync(outputPath, postContent);
+  console.log(`✅ Post generated: ${outputPath}`);
 }
 
-generatePost();
+generatePost().catch((err) => {
+  console.error("❌ Error generating post:", err.message);
+  process.exitCode = 1;
+});

@@ -3,8 +3,7 @@ name: Auto Generate AI Blog Post
 
 on:
   schedule:
-    # - cron: '0 6 * * *'   # Every day at 06:00 UTC
-    - cron: '*/30 * * * *'  # Every 30 min
+    - cron: '0 */6 * * *'
   workflow_dispatch:
 
 permissions:
@@ -15,6 +14,7 @@ permissions:
 jobs:
   generate-and-deploy:
     runs-on: ubuntu-latest
+    timeout-minutes: 20
 
     steps:
       - name: Checkout repo
@@ -35,27 +35,12 @@ jobs:
           git config --global user.name "Kunal-ghosh"
           git config --global user.email "kunalghosh5135@gmail.com"
 
-      - name: Debug file tree
-        run: |
-          set -e
-          CANDIDATES=("pages/utils/generatePost.js" "utils/generatePost.js" "pages/generatePost.js" "scripts/generatePost.js")
-          FOUND=""
-          for p in "${CANDIDATES[@]}"; do
-            if [ -f "$p" ]; then FOUND="$p"; break; fi
-          done
-          if [ -z "$FOUND" ]; then
-            echo "❌ generatePost.js not found. Checked: ${CANDIDATES[*]}"
-            echo "Current tree:"
-            ls -R
-            exit 1
-          fi
-          echo "✅ Using $FOUND"
-          node "$FOUND"
-
-
       - name: Generate AI Post
         env:
           DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          OPENROUTER_MODEL: qwen/qwen3-4b:free
         run: node utils/generatePost.js
 
       - name: Show generated posts
@@ -76,7 +61,8 @@ jobs:
           PAT_TOKEN: ${{ secrets.PAT_TOKEN }}
         run: |
           git add pages/posts
-          git commit -m "Add auto-generated post" || echo "No changes"
+          git diff --cached --quiet && echo "No changes to commit" && exit 0
+          git commit -m "Add auto-generated post"
           # Use PAT token to allow triggering other workflows
           if [ -n "$PAT_TOKEN" ]; then
             git remote set-url origin "https://x-access-token:$PAT_TOKEN@github.com/${{ github.repository }}.git"
