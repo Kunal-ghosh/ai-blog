@@ -13,7 +13,13 @@ const postsDir = path.join(process.cwd(), "pages/posts");
 if (!fs.existsSync(postsDir)) fs.mkdirSync(postsDir, { recursive: true });
 
 const OPENROUTER_URL = "https://openrouter.ai/api/v1/chat/completions";
-const GEMINI_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent";
+const GEMINI_API_BASE =
+  "https://generativelanguage.googleapis.com/v1beta/models";
+const DEFAULT_GEMINI_MODELS = [
+  "gemini-1.5-flash-latest",
+  "gemini-1.5-flash",
+  "gemini-2.0-flash",
+];
 
 function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
@@ -27,7 +33,9 @@ function extractBetweenTags(content, tagName) {
 
 function buildUniqueSlug(baseTitle) {
   const fallbackTitle = baseTitle || `ai-post-${Date.now()}`;
-  const slugBase = slugify(fallbackTitle, { lower: true, strict: true }) || `ai-post-${Date.now()}`;
+  const slugBase =
+    slugify(fallbackTitle, { lower: true, strict: true }) ||
+    `ai-post-${Date.now()}`;
   let slug = slugBase;
   let counter = 1;
 
@@ -62,24 +70,59 @@ async function requestOpenRouterContent(apiKey, prompt, model) {
   return response.data?.choices?.[0]?.message?.content?.trim() || "";
 }
 
-async function requestGeminiContent(apiKey, prompt) {
-  const response = await axios.post(
-    `${GEMINI_URL}?key=${apiKey}`,
-    {
-      contents: [
-        {
-          parts: [{ text: prompt }],
-        },
-      ],
-    },
-    {
-      headers: {
-        "Content-Type": "application/json",
-      },
-    },
-  );
+async function requestGeminiContent(apiKey, prompt, preferredModel) {
+  const candidateModels = preferredModel
+    ? [
+        preferredModel,
+        ...DEFAULT_GEMINI_MODELS.filter((model) => model !== preferredModel),
+      ]
+    : DEFAULT_GEMINI_MODELS;
 
-  return response.data?.candidates?.[0]?.content?.parts?.[0]?.text?.trim() || "";
+  let lastError = null;
+
+  for (const model of candidateModels) {
+    try {
+      const response = await axios.post(
+        `${GEMINI_API_BASE}/${model}:generateContent?key=${apiKey}`,
+        {
+          contents: [
+            {
+              parts: [{ text: prompt }],
+            },
+          ],
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        },
+      );
+
+      const text =
+        response.data?.candidates?.[0]?.content?.parts?.[0]?.text?.trim() || "";
+
+      if (!text) {
+        throw new Error(`Gemini model ${model} returned empty content.`);
+      }
+
+      console.log(`Using Gemini model: ${model}`);
+      return text;
+    } catch (err) {
+      lastError = err;
+      const status = err.response?.status;
+
+      if (status === 404) {
+        console.warn(`Gemini model not found: ${model}. Trying next fallback.`);
+        continue;
+      }
+
+      throw err;
+    }
+  }
+
+  throw new Error(
+    `Gemini fallback failed for all models. Last error: ${lastError?.message || "Unknown error"}`,
+  );
 }
 
 async function generatePost() {
@@ -93,6 +136,7 @@ Write 2 concise lines on a recent real world event and give a topic name for the
   const openRouterApiKey =
     process.env.DEEPSEEK_API_KEY || process.env.OPENROUTER_API_KEY;
   const geminiApiKey = process.env.GEMINI_API_KEY;
+  const geminiModel = process.env.GEMINI_MODEL;
   const openRouterModel = process.env.OPENROUTER_MODEL || "qwen/qwen3-4b:free";
 
   if (!openRouterApiKey && !geminiApiKey) {
@@ -114,7 +158,11 @@ Write 2 concise lines on a recent real world event and give a topic name for the
         );
         console.log(`Using OpenRouter model: ${openRouterModel}`);
       } else {
-        generatedContent = await requestGeminiContent(geminiApiKey, prompt);
+        generatedContent = await requestGeminiContent(
+          geminiApiKey,
+          prompt,
+          geminiModel,
+        );
         console.log("Using Gemini fallback provider.");
       }
 
@@ -131,7 +179,11 @@ Write 2 concise lines on a recent real world event and give a topic name for the
         console.warn(
           `OpenRouter attempt ${attempt} was rate-limited. Falling back to Gemini.`,
         );
-        generatedContent = await requestGeminiContent(geminiApiKey, prompt);
+        generatedContent = await requestGeminiContent(
+          geminiApiKey,
+          prompt,
+          geminiModel,
+        );
         break;
       }
 

@@ -41,6 +41,7 @@ jobs:
           OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           OPENROUTER_MODEL: qwen/qwen3-4b:free
+          GEMINI_MODEL: gemini-1.5-flash-latest
         run: node utils/generatePost.js
 
       - name: Show generated posts
