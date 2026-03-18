@@ -36,7 +36,7 @@ post : /p text /p
         const response = await axios.post(
             "https://openrouter.ai/api/v1/chat/completions",
             {
-                model: "deepseek/deepseek-r1:free",
+                model: "qwen/qwen3-4b:free",
                 // model: "openai/gpt-4o",
                 messages: [
                     {
